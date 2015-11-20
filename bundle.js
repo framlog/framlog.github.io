@@ -19845,6 +19845,7 @@
 	                weight = this.refs.weight.getValue();
 	            this._raw.push({ date: date, weight: weight });
 	            this.makeChange();
+	            localStorage.setItem('data', JSON.stringify(this._raw));
 	        }
 	    }, {
 	        key: 'render',
