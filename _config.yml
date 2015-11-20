@@ -68,4 +68,6 @@ theme: landscape
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/UnICorN21/unicorn21.github.io
+  branch: master
