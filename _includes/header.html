@@ -1,3 +1,4 @@
+<!-- 
 <aside class="logo">
 
 	{% if page.url == '/index.html' or page.url == '/' %}
@@ -10,5 +11,27 @@
 
 	<a href="{{ link | prepend: site.baseurl }}">hblog</a>
 	<span class="logo-prompt">{{ prompt }}</span>
-
 </aside>
+-->
+
+<header>
+    <input type="checkbox" id="nav-toggle">
+    <label id="nav-toggle-label" for="nav-toggle">
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="cross">
+            <span></span>
+            <span></span>
+        </div>
+    </label>
+    <nav role="navigation" id="main-nav">
+        <div class="nav-container">
+            <div class="nav-wrapper">
+                <a class="logo" href="{{ link | prepend: site.baseurl }}">hblog</a>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,106 @@
+$header-height: 50px;
+header {
+    #nav-toggle {
+        opacity: 0;
+    }
+
+    #nav-toggle-label {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        z-index: 999;
+        cursor: pointer;
+
+        .hamburger {
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+
+            span {
+                display: block;
+                position: relative;
+                width: 100%;
+                height: 2px;
+                background: #9fdcff;
+                margin: 10px 0;
+            }
+        }
+
+        .cross {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            margin: 10px;
+            cursor: pointer;
+            transform: rotate(45deg);
+            display: none;
+            span {
+                position: absolute;
+                background: #9fdcff;
+                &:nth-child(1) {
+                    top: 0;
+                    left: 50%;
+                    width: 2px;
+                    height: 100%;
+                    transform: translate(-50%, 0);
+                }
+                &:nth-child(2) {
+                    top: 50%;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    transform: translate(0, -50%);
+                }
+            }
+        } 
+    }
+
+    nav { 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+
+        .nav-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+
+            .nav-wrapper {
+                position: fixed;
+                top: -$header-height;
+                left: 0;
+                width: 100%;
+                height: $header-height;
+                padding: 0 10px;
+                background: rgba(6, 26, 38, 0.8);
+                line-height: $header-height;
+                transition: top 250ms ease-in-out;
+                a {
+                    color: #9fdcff;
+                    &:hover { color: #ffcf91; }
+                }
+
+                .logo {
+                    font-family: 'Slabo 27px', serif;
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+
+    #nav-toggle:checked ~ nav#main-nav {
+        .nav-wrapper {
+            top: 0;
+            box-shadow: 0 1px 2px;
+        }
+    }
+
+    #nav-toggle:checked ~ #nav-toggle-label {
+        .hamburger { display: none; }
+        .cross { display: block; }
+    }
+}
