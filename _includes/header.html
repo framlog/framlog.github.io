@@ -15,12 +15,12 @@
        <div class="nav-container">
             <div class="nav-wrapper">
                 <a class="logo" href="/">hblog</a>
-                {{ page.url }}
                 <ul>
                     {% for link in page.nav-links %}
                     <li>
-                        {% assign url = link | prepend: '/' %}
-                        {% if page.url == url %}
+                        {% assign url = link | prepend: '/' | append: '.html' %}
+                        <!-- Unconsistency between online and local: with `.html` online but none locally. -->
+                        {% if page.url == url %} 
                         <a href={{ url }} class="active">{{ link }}</a>
                         {% else %}
                         <a href={{ url }}>{{ link }}</a>
