@@ -12,9 +12,21 @@
         </div>
     </label>
     <nav role="navigation" id="main-nav">
-        <div class="nav-container">
+       <div class="nav-container">
             <div class="nav-wrapper">
                 <a class="logo" href="/">hblog</a>
+                <ul>
+                    {% for link in page.nav-links %}
+                    <li>
+                        {% assign url = link | prepend: '/' %}
+                        {% if page.url == url %}
+                        <a href={{ url }} class="active">{{ link }}</a>
+                        {% else %}
+                        <a href={{ url }}>{{ link }}</a>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </nav>

@@ -2,4 +2,8 @@
 title: About
 ---
 
-null for now
+Just a programmer.
+
+---
+
+Something else.

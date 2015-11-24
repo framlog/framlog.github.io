@@ -42,6 +42,7 @@ defaults:
       path:         ""
     values:
       layout:       "null"
+      nav-links:     ["about"]
   -
     scope:
       type:         "pages"

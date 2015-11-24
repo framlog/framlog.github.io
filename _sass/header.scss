@@ -1,6 +1,7 @@
 $header-height: 50px;
 $nav-color: #1eaefb;
-$nav-animation-duration: 300ms;
+$nav-selected-color: #ffcf91;
+$nav-animation-duration: 280ms;
 
 header {
     #nav-toggle {
@@ -9,8 +10,7 @@ header {
 
     #nav-toggle-label {
         position: fixed;
-        top: 0;
-        right: 0;
+        top: 0; right: 0;
         width: 50px;
         height: 50px;
         z-index: 999;
@@ -50,15 +50,13 @@ header {
                 position: absolute;
                 background: $nav-color;
                 &:nth-child(1) {
-                    top: 0;
-                    left: 50%;
+                    top: 0; left: 50%;
                     width: 2px;
                     height: 100%;
                     transform: translate(-50%, 0);
                 }
                 &:nth-child(2) {
-                    top: 50%;
-                    left: 0;
+                    top: 50%; left: 0;
                     width: 100%;
                     height: 2px;
                     transform: translate(0, -50%);
@@ -72,6 +70,7 @@ header {
         top: 0; left: 0;
         width: 100%;
         height: 0;
+        font-family: 'Slabo 27px', serif;
 
         .nav-container {
             position: relative;
@@ -80,22 +79,61 @@ header {
 
             .nav-wrapper {
                 position: fixed;
-                top: -$header-height;
-                left: 0;
+                top: -$header-height; left: 0;
                 width: 100%;
                 height: $header-height;
                 padding: 0 10px;
                 background: rgba(6, 26, 38, 0.8);
                 line-height: $header-height;
                 transition: top $nav-animation-duration ease-in-out;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 a {
+                    position: relative;
+                    display: block;
+                    padding: 0 10px;
                     color: $nav-color;
-                    &:hover { color: #ffcf91; }
+                    font-size: 18px;
+                    &.active:before {
+                        position: absolute;
+                        left: 0; bottom: 0;
+                        content: '';
+                        width: 100%;
+                        height: 2px;
+                        background: $nav-color;
+                    }
+                    &:hover { color: $nav-selected-color; }
+                    &:hover:before { background: $nav-selected-color; }
+                }
+
+                ul {
+                    display: inline-block;
+                    margin: 0;
+                    padding: 0;
+                    min-width: 70%;
+                    li { 
+                        display: inline-block;
+                        list-style: none; 
+                        padding: 0 10px;
+                    }
                 }
 
                 .logo {
-                    font-family: 'Slabo 27px', serif;
+                    position: absolute;
+                    left: 1%;
                     font-size: 25px;
+                    &:hover {
+                        animation: shake-logo 200ms ease-in-out 0s 2 alternate;
+                    }
+                }
+
+                @keyframes shake-logo {
+                    0% { transform: rotate(0deg); }
+                    33.3% { transform: rotate(10deg); }
+                    66.6% { transform: rotate(0deg); }
+                    100% { transform: rotate(-10deg); }
                 }
             }
         }
