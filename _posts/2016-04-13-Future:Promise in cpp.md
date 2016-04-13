@@ -1,4 +1,5 @@
 今天偶然看到了一个对于`Future／Promise`模型的简单实现，然后就自己做了一遍。在这里记录一下。
+
 ```cpp
 // A simple implement of future/promise module.
 #include <chrono>
@@ -41,6 +42,7 @@ int main() {
     return 0;
 }
 ```
+
 可以看到，它里面有较多新的东西。这也是记录的原因之一吧。
 
 
