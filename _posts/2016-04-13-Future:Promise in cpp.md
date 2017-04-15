@@ -1,3 +1,9 @@
+---
+layout: post
+title: Future:Promise in cpp
+date: 2016-04-13
+categories: cpp
+---
 今天偶然看到了一个对于`Future／Promise`模型的简单实现，然后就自己做了一遍。在这里记录一下。
 
 ```cpp

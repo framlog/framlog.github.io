@@ -1,3 +1,9 @@
+---
+layout: post
+title: Rotate Array
+date: 2016-4-19
+categories: algorithm
+---
 What'll you do if someone asks you to (cyclic) left shift the array?
 
 Here is the stl version:

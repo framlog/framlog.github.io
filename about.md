@@ -1,9 +1,8 @@
 ---
-title: About
+layout: default
+permalink: about
 ---
 
-Just a programmer.
+# About
 
----
-
-Something else.
+A programmer, student, ACG fan, dota2 player...

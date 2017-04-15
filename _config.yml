@@ -1,55 +1,42 @@
-# Site Info
-title:              "hblog"
-description:        ""
-# google_verify:      epFgX0s_0RM3CdjwFcsewfXzPov2g8s9ZBOLyaIUH-o # Put your Google Verification here
-# google_analytics:   UA-XXXXXXX-X # Put your Google Analytics code
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-# Author Info
-author_name:        "Huxley Hu"
-author_email:       framlog@gmail.com
-# author_gravatar:    2b38b1b0e7e08b69379bd61582adf0c8 # Gravatar md5 hash
+# Site settings
+title: hblog
+description: "" 
+repository: https://github.com/framlog/framlog.github.io
+baseurl: ""
+url: https://framlog.github.io  # the base hostname & protocol for your site
 
-# Site Settings
-baseurl:            "" # Base URL must end WITHOUT a slash, default: ""
-permalink:          /notes/:title # Post permalink
-timezone:           Asia/Chongqing # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+# Build settings
+markdown: kramdown
 
-# Site Build
-highlighter:         rouge
-#markdown:           redcarpet
-#redcarpet:
-#    extensions:     ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "highlight", "footnotes"]
-markdown:           kramdown
-kramdown:
-    input:          GFM
+# Sass settings
 sass:
-    style:          :compressed
+  style: compressed
 
-# Other Params
-include:            [ "robots.txt" ]
-exclude:            [ "LICENSE", "README.md", "CNAME", "vendor", "Gemfile" ]
+# Theme settings
+theme_mode: markdown  # choices are: 'dark', 'standard', 'markdown'
+
+# Customizations
+your_name: Huxley Hu
+email: framlog#gmail.com
+
+navigation:
+  - text: Home
+    url: /
+  - text: About
+    url: /about
+
+social:
+  - service: github
+    username: framlog
+    link: https://github.com/framlog
+
+# Plugins
 gems:
-  - jekyll-sitemap
-
-compress_html:
-    clippings:      all
-    ingore:
-        envs:       [ "test" ]
-
-defaults:
-  -
-    scope:
-      path:         ""
-    values:
-      layout:       "null"
-      nav-links:     ["about"]
-  -
-    scope:
-      type:         "pages"
-    values:
-      layout:       "page"
-  -
-    scope:
-      type:         "posts"
-    values:
-      layout:       "post"
+  - jekyll-seo-tag
