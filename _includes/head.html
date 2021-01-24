@@ -1,36 +1,56 @@
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<head prefix="og: http://ogp.me/ns#; dc: http://purl.org/dc/terms/#">
+  {% capture resource_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+  {% capture directory_url %}{{ site.url }}{{ site.baseurl }}{% endcapture %}
+  <!-- Canonical link to help search engines -->
+  <link rel="canonical" href="{{ resource_url }}" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="{{ "/favicon.png" | prepend: site.baseurl }}">
+  <!-- Basic meta elements -->
+  <meta charset="utf-8" />
 
-  <!-- Meta information -->
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description"
-        content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
-  <link rel="canonical"
-        href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}" />
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no" />
 
-  <!-- hack.css -->
-  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/hack.css" />
-  {% if site.theme_mode == 'standard' %}
-  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/standard.css" />
-  {% elsif site.theme_mode == 'dark' %}
-  <link rel="stylesheet" href="https://npmcdn.com/hack/dist/dark.css" />
-  {% endif %}
+  <title>
+    {% if page.title == "Home" %}
+      {{ site.title }}
+    {% else %}
+      {{ page.title }}
+    {% endif %}
+  </title>
 
-  <!-- Prism.js -->
-  <link rel="stylesheet" href="https://npmcdn.com/prismjs@1.5.1/themes/prism.css" />
+  <!-- Dublin Core metadata for Zotero -->
+  <meta property="dc:title" content="{{ page.title }}" />
+  <meta property="dc:creator" content="{% if page.author %}{{ page.author }}{% else %}{{ site.author.name }}{% endif %}" />
+  <meta property="dc:identifier" content="{{ resource_url }}" />
+  {% if page.editor %}<meta property="dc:contributor" content="{{ page.editor }}" />{% endif %}
+  {% if page.publication-date %}<meta property="dc:date" content="{{ page.publication-date }}" />{% endif %}
+  {% if page.rights %}<meta property="dc:rights" content="{{ page.rights }}" />{% endif %}
+  <meta property="dc:source" content="{% if page.source %}{{ page.source }}{% else %}{{ site.title }}{% endif %}" />
 
-  <!-- Custom style -->
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" />
+  <!-- Open Graph metadata -->
+  <meta property="og:title" content="{{ page.title }}" />
+  <meta property="og:url" content="{{ resource_url }}" />
+  <meta property="og:image" content="{{ directory_url }}/assets/open-graph-logo.png" />
+  <meta property="og:image:width" content="200" />
+  <meta property="og:image:height" content="200" />
+  <meta property="fb:admins" content="elotroalex" />
+  <meta property="fb:app_id" content="589495744558280" />
 
-  <!-- Feed -->
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}"
-        href="{{ "/feed.xml" | prepend: site.baseurl }}" />
+{% if page.layout == "default" %}
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:type" content="website" />
+{% else %}
+  <meta property="og:description" content="An Ed edition">
+  <meta property="og:type" content="article" />
+{% endif %}
 
-  <!-- 'jekyll-seo' plugin -->
-  {% seo %}
+  <!-- CSS link -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css" />
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ site.baseurl }}/assets/apple-touch-icon-precomposed.png" />
+  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/favicon.ico" />
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ directory_url }}/atom.xml" />
 </head>

@@ -1,9 +1,7 @@
 ---
-layout: default
-permalink: about
+layout: page
+title: About
 ---
-
-# About
 
 A programmer, ACG fan, dota2 player...
 
@@ -11,6 +9,3 @@ A programmer, ACG fan, dota2 player...
     + Proficent in C/C++, NoSQL
     + Familiar with Rust/Python, Linux, Databases, OS, Redis, Git, etc.
     + Familiar with Java/Go/Javascript
-
-+ Projects
-    + [libcps](https://github.com/framlog/libcps)
